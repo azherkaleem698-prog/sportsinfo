@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportsInfo — Sports</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #c9f7cb;
+      --text: #03340c;
+      --accent: #1bb33f;
+      --card: #e6ffe7;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      transition: 0.4s;
+    }
+
+    .navbar, footer {
+      background: var(--accent);
+      color: white;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron';
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: white !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #022f09 !important;
+    }
+
+    h1 {
+      font-family: 'Orbitron';
+      color: var(--accent);
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .sports-card {
+      background: var(--card);
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .sports-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .sports-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-links a {
+      color: white;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: #021903;
+      color: #eaffea;
+    }
+
+    body.dark-mode .sports-card {
+      background: #064010;
+      color: #eaffea;
+    }
+
+    body.dark-mode .navbar, body.dark-mode footer {
+      background: #0a5019;
+    }
+
+    /* Modal customization */
+    .modal-content {
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SportsInfo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="sports.html">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="guestbook.html">Guestbook</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button id="themeToggle" class="toggle-btn ms-3">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <h1>Sports Highlights</h1>
+    <div class="row mt-4 g-4">
+
+      <!-- 1. Football -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf" alt="Football">
+          <h5 class="mt-3">⚽ Football</h5>
+          <p>The world's favorite sport connecting billions of fans.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#footballModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 2. Cricket (Pakistan) -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://static.theprint.in/wp-content/uploads/2022/10/PTI10_23_2022_000223B-scaled.jpg" alt="Cricket Pakistan Team">
+          <h5 class="mt-3">🏏 Cricket</h5>
+          <p>Experience the thrill of Pakistan’s cricket legends.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#cricketModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 3. Basketball -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b" alt="Basketball">
+          <h5 class="mt-3">🏀 Basketball</h5>
+          <p>Fast, dynamic, and full of energy — the game of giants.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#basketModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 4. Hockey -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://cdn.britannica.com/15/201015-050-E24FA163/Field-hockey-match-Poland-Spain-2017.jpg" alt="Hockey">
+          <h5 class="mt-3">🏒 Hockey</h5>
+          <p>Grace, speed, and precision define this fast-paced sport.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#hockeyModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 5. Tennis -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae" alt="Tennis">
+          <h5 class="mt-3">🎾 Tennis</h5>
+          <p>A sport of precision, power, and passion played worldwide.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#tennisModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 6. Volleyball -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://cdn.britannica.com/81/198481-050-10CED2D9/Gilberto-Godoy-Filho-ball-Brazil-Argentina-volleyball-2007.jpg" alt="Volleyball">
+          <h5 class="mt-3">🏐 Volleyball</h5>
+          <p>A game of teamwork, agility, and high-flying spikes.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#volleyModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 7. Athletics -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Depart4x100.jpg" alt="Athletics">
+          <h5 class="mt-3">🏃 Athletics</h5>
+          <p>From sprinting to marathons — the purest form of sport.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#athleticModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 8. Rugby -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://www.rugbyeurope.eu/media/rbrpjy3f/fiji-v-georgia-rugby-world-cup-france-2023.jpeg" alt="Rugby">
+          <h5 class="mt-3">🏉 Rugby</h5>
+          <p>Strength, strategy, and passion collide on the rugby field.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#rugbyModal">Read More</button>
+        </div>
+      </div>
+
+      <!-- 9. Judo -->
+      <div class="col-md-4">
+        <div class="sports-card p-3 text-center">
+          <img src="https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2025/09/para1-1758289433-1758289433.jpg" alt="Judo">
+          <h5 class="mt-3">🥋 Judo</h5>
+          <p>The art of balance, discipline, and physical control.</p>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#judoModal">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links mb-2">
+      <a href="index.html">Home</a> |
+      <a href="sports.html">Sports</a> |
+      <a href="guestbook.html">Guestbook</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+    <small>© 2025 SportsInfo. All rights reserved.</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        btn.style.transform='scale(0.95)';
+        setTimeout(()=>btn.style.transform='scale(1)',150);
+      });
+    });
+    const themeToggle=document.getElementById('themeToggle');
+    themeToggle.addEventListener('click',()=>{
+      document.body.classList.toggle('dark-mode');
+      themeToggle.textContent=document.body.classList.contains('dark-mode')?'☀️':'🌙';
+    });
+  </script>
+</body>
+</html>

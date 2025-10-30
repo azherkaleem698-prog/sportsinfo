@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportsInfo — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #c9f7cb;
+      --text: #03340c;
+      --accent: #1bb33f;
+      --card: #e6ffe7;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      transition: 0.4s;
+    }
+
+    .navbar, footer {
+      background: var(--accent);
+      color: white;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron';
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: white !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #022f09 !important;
+    }
+
+    h1 {
+      font-family: 'Orbitron';
+      color: var(--accent);
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .about-section {
+      background: var(--card);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 2rem auto;
+      transition: transform 0.3s ease;
+    }
+
+    .about-section:hover {
+      transform: translateY(-5px);
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: var(--card);
+      border-radius: 15px;
+      text-align: center;
+      padding: 1.5rem;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-links a {
+      color: white;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: #021903;
+      color: #eaffea;
+    }
+
+    body.dark-mode .about-section,
+    body.dark-mode .team-member {
+      background: #064010;
+      color: #eaffea;
+    }
+
+    body.dark-mode .navbar, body.dark-mode footer {
+      background: #0a5019;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SportsInfo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="sports.html">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="guestbook.html">Guestbook</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button id="themeToggle" class="toggle-btn ms-3">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <div class="container">
+    <h1>About SportsInfo</h1>
+    <div class="about-section mt-4">
+      <p>
+        <strong>SportsInfo</strong> is your ultimate hub for all sports enthusiasts!  
+        Our mission is to deliver fast, accurate, and engaging sports content —  
+        whether it’s football, cricket, basketball, or any major global event.  
+        We combine technology, passion, and analytics to bring you closer to the games you love.
+      </p>
+      <p>
+        Founded in 2025, SportsInfo started as a small project and grew into a digital sports community.  
+        Our goal is to make sports data and news more interactive and enjoyable for everyone.
+      </p>
+    </div>
+
+    <h2 class="text-center mt-5">Meet Our Team</h2>
+    <div class="team">
+      <div class="team-member">
+        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=400&q=80" alt="Team Member">
+        <h5>Ahmed Khan</h5>
+        <p>Founder & Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="https://images.unsplash.com/photo-1581091870622-6c1a6a798b6a?auto=format&fit=crop&w=400&q=80" alt="Team Member">
+        <h5>Sara Ali</h5>
+        <p>Sports Analyst</p>
+      </div>
+      <div class="team-member">
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Team Member">
+        <h5>Bilal Ahmed</h5>
+        <p>Content Manager</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links mb-2">
+      <a href="index.html">Home</a> |
+      <a href="sports.html">Sports</a> |
+      <a href="guestbook.html">Guestbook</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+    <small>© 2025 SportsInfo. All rights reserved.</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
