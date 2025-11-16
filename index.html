@@ -12,9 +12,9 @@
       --bg: #c9f7cb;
       --text: #03340c;
       --accent: #1bb33f;
-      --accent2: #13d35b;
       --card: #e6ffe7;
     }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -22,6 +22,8 @@
       margin: 0;
       transition: background 0.4s, color 0.4s;
     }
+
+    /* Navbar */
     .navbar {
       background: var(--accent);
     }
@@ -39,25 +41,52 @@
     .nav-link:hover {
       color: #002a06 !important;
     }
+
+    /* HERO SECTION */
     .hero {
-      min-height: 70vh;
+      position: relative;
+      height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
       text-align: center;
-      background: linear-gradient(180deg, var(--card), var(--bg));
-      padding: 4rem 1rem;
+      overflow: hidden;
     }
+
+    /* Background slideshow images */
+    .hero img.bg-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      filter: brightness(0.6);
+    }
+
+    .hero img.bg-slide.active {
+      opacity: 1;
+    }
+
     .hero h1 {
       font-family: 'Orbitron';
-      color: var(--accent);
       font-size: 3rem;
+      color: white;
+      z-index: 2;
+      position: relative;
     }
     .hero p {
-      color: #055e19;
-      font-size: 1.1rem;
+      color: #e0ffe4;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
+
+    /* Buttons */
     .btn-custom {
       background: var(--accent);
       color: white;
@@ -66,20 +95,32 @@
     }
     .btn-custom:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
+
+    /* Cards Section */
     section {
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
     }
     .card {
       background: var(--card);
       border: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
     .card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Footer */
     footer {
       background: var(--accent);
       color: white;
@@ -106,13 +147,11 @@
     body.dark-mode footer {
       background: #0a5019;
     }
-    body.dark-mode .hero {
-      background: linear-gradient(180deg, #033a0d, #021903);
-    }
     body.dark-mode .card {
       background: #064010;
       color: #eaffea;
     }
+
     .toggle-btn {
       background: transparent;
       border: 2px solid white;
@@ -130,12 +169,6 @@
       background: white;
       color: var(--accent);
     }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
   </style>
 </head>
 
@@ -143,13 +176,17 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="download.md" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+  SportsInfo
+</a>
       <a class="navbar-brand" href="index.html">SportsInfo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="sports.html">Sports</a></li>
           <li class="nav-item"><a class="nav-link" href="guestbook.html">Guestbook</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -162,34 +199,49 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <!-- Background slideshow images -->
+    <img src="football..jpeg" class="bg-slide active" alt="">
+    <img src="download.jpeg" class="bg-slide" alt="">
+    <img src="download (1).jpeg" class="bg-slide" alt="">
+
     <div>
       <h1>Welcome to SportsInfo</h1>
       <p>Your Ultimate Destination for Professional Sports Insights</p>
       <a href="sports.html" class="btn btn-lg btn-custom">Explore Sports</a>
-      <a href="guestbook.html" class="btn btn-lg btn-outline-success ms-2">Join Guestbook</a>
+      <a href="guestbook.html" class="btn btn-lg btn-outline-light ms-2">Join Guestbook</a>
     </div>
   </section>
 
   <!-- Highlights Section -->
   <section>
     <div class="container">
+      <h2 class="text-center mb-5" style="color: var(--accent)">Top Sports Highlights</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card p-4 fade-up">
-            <h5>Live Updates</h5>
-            <p>Stay updated with the latest match scores and live stats.</p>
+          <div class="card">
+            <img src="football..jpeg" alt="Football">
+            <div class="p-4">
+              <h5>⚽ Football</h5>
+              <p>Catch live football action and explore global tournaments & leagues.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card p-4 fade-up">
-            <h5>Player Analytics</h5>
-            <p>Deep insights into player performance and trends.</p>
+          <div class="card">
+            <img src="download.jpeg" alt="Cricket">
+            <div class="p-4">
+              <h5>🏏 Cricket</h5>
+              <p>Stay updated with match schedules, live scores, and player stats.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card p-4 fade-up">
-            <h5>Community Talks</h5>
-            <p>Engage with fans and experts through our guestbook.</p>
+          <div class="card">
+            <img src="download (1).jpeg" alt="Basketball">
+            <div class="p-4">
+              <h5>🏀 Basketball</h5>
+              <p>Explore thrilling NBA games, highlights, and team performance stats.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -199,10 +251,10 @@
   <!-- Footer -->
   <footer>
     <div class="footer-links mb-2">
-      <a href="index.html">Home</a>|
-      <a href="sports.html">Sports</a>|
-      <a href="guestbook.html">Guestbook</a>|
-      <a href="about.html">About</a>|
+      <a href="index.html">Home</a> |
+      <a href="sports.html">Sports</a> |
+      <a href="guestbook.html">Guestbook</a> |
+      <a href="about.html">About</a> |
       <a href="contact.html">Contact</a>
     </div>
     <small>© 2025 SportsInfo. All rights reserved.</small>
@@ -211,17 +263,6 @@
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Scroll animation
-    function revealOnScroll() {
-      document.querySelectorAll('.fade-up').forEach(function (el) {
-        let top = el.getBoundingClientRect().top;
-        let winHeight = window.innerHeight;
-        if (top < winHeight - 100) el.classList.add('in-view');
-      });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-
     // Button click animation
     document.querySelectorAll('.btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -236,6 +277,15 @@
       document.body.classList.toggle('dark-mode');
       themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
+
+    // ✅ Background slideshow (3 images auto-change every 5s)
+    const slides = document.querySelectorAll('.bg-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
   </script>
 </body>
 </html>
